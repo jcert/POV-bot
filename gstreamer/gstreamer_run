@@ -1,0 +1,19 @@
+#!/bin/sh
+#to run this use: sudo bash <name of the file>
+#first parameter is the Pi ip, use the ssh intructions in case you don't know
+#also, this rotates clockwise the image, due to the mechanical construct of the
+#robot, change it if necessary, or even remove it if useless
+
+if [ "$#" -ne 1 ]; then
+    echo "Illegal number of parameteras, must have 1. Pi_IP"
+else
+	gst-launch-1.0 -v tcpclientsrc host=$1 port=5000  ! gdpdepay !  rtph264depay ! avdec_h264 ! videoconvert !videoflip method="horizontal-flip" !videoflip method="rotate-180" ! autovideosink sync=false
+fi
+
+
+
+
+
+
+
+
