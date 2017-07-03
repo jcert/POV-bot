@@ -1,7 +1,7 @@
 import wx
 import time
 
-if(False):###is this the raspberryPi?
+if(True):###is this the raspberryPi?
   import RPi.GPIO as IO
 else:
   class GPIO:
@@ -76,8 +76,8 @@ class MyFrame(wx.Frame):
     self.control = wx.TextCtrl(self, style=wx.TE_MULTILINE)
     self.Show(True)
     self.Bind(wx.EVT_CHAR_HOOK, self.OnAbout)
-    self.myCar = Car({"pinA":1,"pinB":1,"pinEN":1},
-                     {"pinA":2,"pinB":2,"pinEN":2})
+    self.myCar = Car({"pinA":27,"pinB":22,"pinEN":17},
+                     {"pinA":24,"pinB":25,"pinEN":23})
   
   def OnAbout(self, evt):
     keypress = evt.GetKeyCode()
